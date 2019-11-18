@@ -1,0 +1,13 @@
+name: Docker Build and Publish CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish Docker
+      uses: elgohr/Publish-Docker-Github-Action@2.8
+      with:
+        name: guimobear/protoc
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tag_names: true
